@@ -1,0 +1,76 @@
+<div class="card border-light bg-light mb-2 mt-4">
+  <h2 class="text-center">ARE YOU AN</h2>
+  <div class="text-dark justify-content-around d-flex">
+    <input type="radio" class="btn-check" name="options-outlined" id="employer" [value]="false" (change)="setMode($event)" autocomplete="off" checked>
+    <label class="btn btn-outline-dark mx-3" for="employer">employer</label>
+    <h2>OR</h2>
+    <input type="radio" class="btn-check" name="options-outlined" id="employee" [value]="true" (change)="setMode($event)" autocomplete="off">
+    <label class="btn btn-outline-dark mx-3" for="employee">employee</label>
+  </div>
+</div>
+<div class="card border-light bg-light mb-4">
+  <h2 class="text-center fw-bold pt-5">REGISTER</h2>
+  <p class="text-center">Create an account to post gigs</p>
+  <div class="card-body">
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+      <div class="mb-lg-4 mb-2 mt-3">
+        <input type="text" class="form-control" id="firstname" placeholder="First name" name="name" ngModel required>
+      </div>
+      <div class="mb-lg-4 mb-2 mt-3">
+        <input type="text" class="form-control" id="lastname" placeholder="Last name" name="name" ngModel required>
+      </div>
+      <div class="mb-lg-4 mb-2">
+        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" ngModel required
+               email>
+      </div>
+      <div class="mb-lg-4 mb-2">
+        <label for="confemail" class="d-none">Email</label>
+        <input type="email" class="form-control" id="confemail" placeholder="*Confirm email" name="email" ngModel required
+               email>
+      </div>
+      <div class="mb-lg-4 mb-2">
+        <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" ngModel
+               required>
+      </div>
+      <div class="mb-lg-4 mb-2">
+        <input type="password" class="form-control" id="confpassword" placeholder="*Confirm password" name="password" ngModel
+               required>
+      </div>
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="location">Location</label>
+        <select class="form-select" id="location">
+          <option selected>Choose...</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="nationality">nationality</label>
+        <select class="form-select" id="nationality">
+          <option selected>Choose...</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+      <p>gender:</p>
+    <div class="mb-3 d-flex">
+      <input type="radio" id="male" name="gender" value="male">
+      <label for="male" class="pe-4">Male</label><br>
+      <input type="radio" id="female" name="gender" value="female">
+      <label for="female">Female</label><br>
+    </div>
+      <div class="mb-lg-4 mb-2">
+        <input type="number" class="form-control" id="phone" placeholder="Enter phone" name="phone" ngModel
+               required>
+      </div>
+      <div class="mb-lg-4 mb-2" *ngIf="isEmployee">
+        <input type="text" class="form-control" id="major" placeholder="Enter Major" name="major" ngModel
+               required>
+      </div>
+      <button class="btn btn-success" [disabled]="!form.valid" type="submit">Sign Up</button>
+      <p>Already have an account?<a class="text-danger" style="cursor: pointer;" (click)="toLogin()">Login</a></p>
+    </form>
+  </div>
+</div>
