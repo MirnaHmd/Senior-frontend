@@ -1,5 +1,6 @@
 .slider{
   background: #007bff;
-  min-height: 400px;
+  min-height: 350px;
   justify-content: center;
+  padding-top: 75px;
 }
