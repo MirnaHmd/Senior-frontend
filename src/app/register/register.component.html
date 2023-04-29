@@ -13,28 +13,33 @@
   <p class="text-center">Create an account to post gigs</p>
   <div class="card-body">
     <form #form="ngForm" (ngSubmit)="onSubmit(form)">
-      <div class="mb-lg-4 mb-2 mt-3">
+      <div class="form-floating mb-lg-4 mb-2 mt-3">
         <input type="text" class="form-control" id="firstname" placeholder="First name" name="name" ngModel required>
+        <label for="firstname">First name</label>
       </div>
-      <div class="mb-lg-4 mb-2 mt-3">
+      <div class="form-floating mb-lg-4 mb-2 mt-3">
         <input type="text" class="form-control" id="lastname" placeholder="Last name" name="name" ngModel required>
+        <label for="lastname">last name</label>
       </div>
-      <div class="mb-lg-4 mb-2">
+      <div class="form-floating mb-lg-4 mb-2">
         <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" ngModel required
                email>
+        <label for="email">Enter email</label>
       </div>
-      <div class="mb-lg-4 mb-2">
-        <label for="confemail" class="d-none">Email</label>
+      <div class="form-floating mb-lg-4 mb-2">
         <input type="email" class="form-control" id="confemail" placeholder="*Confirm email" name="email" ngModel required
                email>
+        <label for="confemail">Confirm email</label>
       </div>
-      <div class="mb-lg-4 mb-2">
+      <div class="form-floating mb-lg-4 mb-2">
         <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" ngModel
                required>
+        <label for="password">Enter password</label>
       </div>
-      <div class="mb-lg-4 mb-2">
+      <div class="form-floating mb-lg-4 mb-2">
         <input type="password" class="form-control" id="confpassword" placeholder="*Confirm password" name="password" ngModel
                required>
+        <label for="confpassword">Confirm password</label>
       </div>
       <div class="input-group mb-3">
         <label class="input-group-text" for="location">Location</label>
@@ -61,13 +66,15 @@
       <input type="radio" id="female" name="gender" value="female">
       <label for="female">Female</label><br>
     </div>
-      <div class="mb-lg-4 mb-2">
+      <div class="form-floating mb-lg-4 mb-2">
         <input type="number" class="form-control" id="phone" placeholder="Enter phone" name="phone" ngModel
                required>
+        <label for="phone">Enter phone</label>
       </div>
-      <div class="mb-lg-4 mb-2" *ngIf="isEmployee">
+      <div class="form-floating mb-lg-4 mb-2" *ngIf="isEmployee">
         <input type="text" class="form-control" id="major" placeholder="Enter Major" name="major" ngModel
                required>
+        <label for="major">Enter major</label>
       </div>
       <button class="btn btn-success" [disabled]="!form.valid" type="submit">Sign Up</button>
       <p>Already have an account?<a class="text-danger" style="cursor: pointer;" (click)="toLogin()">Login</a></p>
