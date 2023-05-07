@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import {FormsModule} from "@angular/forms";
 import { RegisterComponent } from './register/register.component';
 import { JobsEditComponent } from './jobs-edit/jobs-edit.component';
+import { JobsCardComponent } from './jobs-card/jobs-card.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { JobsEditComponent } from './jobs-edit/jobs-edit.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    JobsEditComponent
+    JobsEditComponent,
+    JobsCardComponent
   ],
   imports: [
     BrowserModule,

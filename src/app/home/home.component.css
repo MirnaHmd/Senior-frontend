@@ -1,6 +1,6 @@
-.slider{
-  background: #007bff;
-  min-height: 350px;
-  justify-content: center;
-  padding-top: 75px;
+.slider {
+  background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(11, 120, 145, 1) 50%, rgba(0, 254, 255, 1) 100%);
+  background-size: cover;
+  min-height: 500px;
+  color: white;
 }
