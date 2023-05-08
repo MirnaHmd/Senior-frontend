@@ -12,6 +12,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { JobsEditComponent } from './jobs-card/jobs-edit/jobs-edit.component';
 import { JobsCardComponent } from './jobs-card/jobs-card.component';
 import { JobsDetailComponent } from './jobs-card/jobs-detail/jobs-detail.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,9 @@ import { JobsDetailComponent } from './jobs-card/jobs-detail/jobs-detail.compone
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
