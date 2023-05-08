@@ -6,11 +6,12 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './navigation/footer/footer.component';
 import { HeaderComponent } from './navigation/header/header.component';
 import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './auth/login/login.component';
 import {FormsModule} from "@angular/forms";
-import { RegisterComponent } from './register/register.component';
-import { JobsEditComponent } from './jobs-edit/jobs-edit.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { JobsEditComponent } from './jobs-card/jobs-edit/jobs-edit.component';
 import { JobsCardComponent } from './jobs-card/jobs-card.component';
+import { JobsDetailComponent } from './jobs-card/jobs-detail/jobs-detail.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { JobsCardComponent } from './jobs-card/jobs-card.component';
     LoginComponent,
     RegisterComponent,
     JobsEditComponent,
-    JobsCardComponent
+    JobsCardComponent,
+    JobsDetailComponent
   ],
   imports: [
     BrowserModule,

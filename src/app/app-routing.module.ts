@@ -1,9 +1,9 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {LoginComponent} from "./login/login.component";
+import {LoginComponent} from "./auth/login/login.component";
 import {HomeComponent} from "./home/home.component";
-import {RegisterComponent} from "./register/register.component";
-import {JobsEditComponent} from "./jobs-edit/jobs-edit.component";
+import {RegisterComponent} from "./auth/register/register.component";
+import {JobsEditComponent} from "./jobs-card/jobs-edit/jobs-edit.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
