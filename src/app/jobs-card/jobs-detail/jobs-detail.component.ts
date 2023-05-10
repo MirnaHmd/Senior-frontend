@@ -16,10 +16,10 @@ export class JobsDetailComponent implements OnInit {
               private jobsService : JobsService) { }
 
   ngOnInit(): void {
-    this.jobId = this.route.snapshot.params['id'];
-    this.jobsService.getSingleJob(this.jobId).subscribe(
-      (response) => {
-        this.job = response[0] as Job;
+    this.route.data.subscribe(
+      (response: any) => {
+        this.job = response[0].success.job as Job;
+        console.log(this.job);
       }
     )
   }

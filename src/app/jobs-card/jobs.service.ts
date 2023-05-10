@@ -35,6 +35,9 @@ export class JobsService {
   }
 
   updateJob(id: any, data: any) {
-    return this.http.put<any>(`${this.url}/job/${id}`, data)
+    return this.http.put<any>(`${this.url}/job/${id}`, data);
+  }
+  getLocation(){
+    return this.http.get<any>('${this.url}/');
   }
 }

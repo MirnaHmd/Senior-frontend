@@ -14,7 +14,14 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(form: any) {
+    if (!form.valid) {
+      return;
+    }
 
+    const data: any = {
+      email: form.value.email,
+      password: form.value.password,
+    }
   }
 
   toRegister() {

@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./jobs-edit.component.css']
 })
 export class JobsEditComponent implements OnInit {
+  selectedLocation = '';
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onSelectedLocation(value: string) : void {
+    this.selectedLocation = value;
+  }
 }

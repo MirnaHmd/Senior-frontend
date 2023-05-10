@@ -5,7 +5,7 @@ export interface Job {
   job_title : string,
 
   salary : string,
-  description : string,
+  job_description : string,
   company_name : string,
   location : string,
   size : string,
