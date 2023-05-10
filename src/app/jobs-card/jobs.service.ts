@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {BehaviorSubject, Observable} from "rxjs";
 import {Job} from "./job";
 import {environment} from "../../environments/environment";
 
@@ -10,6 +10,8 @@ import {environment} from "../../environments/environment";
 export class JobsService {
 
   private url: string = environment.url;
+  startedEditing: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
 
   constructor(private http: HttpClient) {
   }

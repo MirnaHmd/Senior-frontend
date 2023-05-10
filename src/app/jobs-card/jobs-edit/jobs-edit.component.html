@@ -3,7 +3,7 @@
   <h2 class="text-center fw-bold pt-5">Post a job</h2>
   <p class="text-center">Create an account to post gigs</p>
   <div class="card-body">
-    <form #form="ngForm" >
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)" >
       <div class="form-floating mb-lg-4 mb-2 mt-3">
         <input type="text" class="form-control" id="JobTitle" placeholder="Job Title" name="jobtitle" ngModel required>
         <label for="JobTitle">Job title</label>
@@ -14,8 +14,8 @@
         <label for="CompanyName">Company name</label>
       </div>
       <div class="form-floating mb-lg-4 mb-2 mt-3">
-        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px"></textarea>
-        <label for="floatingTextarea2">Comments</label>
+        <textarea class="form-control" placeholder="Leave a comment here" id="description" name="description" style="height: 200px"></textarea>
+        <label for="description">Comments</label>
       </div>
       <div class="input-group mb-3">
         <label class="input-group-text" for="location">Location</label>
