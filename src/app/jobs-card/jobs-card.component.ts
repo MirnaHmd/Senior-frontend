@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Job} from "./job";
 import {JobsService} from "./jobs.service";
 import {Router} from "@angular/router";
+import {AuthService} from "../auth/auth.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-jobs-card',
@@ -10,8 +12,11 @@ import {Router} from "@angular/router";
 })
 export class JobsCardComponent implements OnInit {
   jobs: Job[] = [];
+  isAuth!: boolean;
+  subscription!: Subscription
 
-  constructor(private jobsService: JobsService, private router : Router) {
+  constructor(private jobsService: JobsService, private router : Router,
+              private authService : AuthService) {
   }
 
   ngOnInit(): void {
@@ -20,9 +25,23 @@ export class JobsCardComponent implements OnInit {
         this.jobs = response.success.jobs;
       }
     )
+    this.subscription = this.authService.user.subscribe((user) => {
+      this.isAuth = !!user;
+    })
+  }
+  ngOnDestroy(): void {
+    if (this.isAuth) {
+      this.subscription.unsubscribe();
+      this.isAuth = false;
+    }
   }
 
   todescription(id: any) {
-    this.router.navigate(['/job/' + id]);
+    if(this.isAuth){
+      this.router.navigate(['/job/'+id]);
+    }
+    else{
+      this.router.navigate(['login'])
+    }
   }
 }

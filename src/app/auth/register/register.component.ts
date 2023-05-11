@@ -27,6 +27,18 @@ export class RegisterComponent implements OnInit {
     if (!form.valid) {
       return;
     }
+    const data: any = {
+      first_name: form.value.firstname,
+      last_name: form.value.lastname,
+      password: form.value.password,
+      email : form.value.email,
+      location :  form.value.selectedLocation,
+      nationality: form.value.selectedNation,
+      gender : form.value.gender,
+      phone : form.value.phone,
+      major : form.value.major,
+      role : form.value.role
+    }
 
   }
 

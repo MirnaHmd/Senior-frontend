@@ -1,9 +1,10 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from "@angular/forms";
-import {ActivatedRoute, Params} from "@angular/router";
+import {ActivatedRoute, Params, Router} from "@angular/router";
 import {JobsService} from "../jobs.service";
 import {Subscription} from "rxjs";
 import {Job} from "../job";
+import {AuthService} from "../../auth/auth.service";
 
 @Component({
   selector: 'app-jobs-edit',
@@ -21,7 +22,7 @@ export class JobsEditComponent implements OnInit {
 
 
   constructor(private route : ActivatedRoute, private jobsService : JobsService,
-              ) { }
+             private authService : AuthService, private router : Router) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
@@ -53,8 +54,45 @@ export class JobsEditComponent implements OnInit {
   onSelectedLocation(value: string) : void {
     this.selectedLocation = value;
   }
+  ngOnDestroy(): void {
+    if (this.editMode) {
+      this.subscription.unsubscribe();
+    }
+    this.editMode = false;
+  }
 
   onSubmit(form: NgForm) {
-
+    if (!form.valid) {
+      return;
+    }
+    // @ts-ignore
+    let userId = JSON.parse(this.authService.user.getValue()).id;
+    const data: any = {
+      job_title: form.value.jobtitle,
+      company_name: form.value.companyname,
+      job_description: form.value.description,
+      location : form.value.selectedLocation,
+      salary : form.value.salary,
+      user_id: userId
+    }
+    if (!this.editMode) {
+      this.jobsService.addJob(data).subscribe(
+        () => {
+          this.router.navigate(['']);
+        },
+        (response) => {
+          if (response.status == '401') {
+            alert('you need to be logged in first!')
+            this.router.navigate(['login']);
+          }
+        }
+      );
+    } else {
+      this.jobsService.updateJob(this.job.id, data).subscribe(
+        () => {
+          this.router.navigate(['']);
+        }
+      )
+    }
   }
 }

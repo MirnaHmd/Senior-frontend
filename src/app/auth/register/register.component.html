@@ -1,11 +1,11 @@
 <div class="card border-light bg-light mb-2 mt-4">
   <h2 class="text-center">ARE YOU AN</h2>
   <div class="text-dark justify-content-around d-flex">
-    <input type="radio" class="btn-check" name="options-outlined" id="employer" [value]="false"
+    <input type="radio" class="btn-check" name="role" id="employer" [value]="false"
            (change)="setMode($event)" autocomplete="off" checked>
     <label class="btn btn-outline-dark mx-3" for="employer">employer</label>
     <h2>OR</h2>
-    <input type="radio" class="btn-check" name="options-outlined" id="employee" [value]="true"
+    <input type="radio" class="btn-check" name="role" id="employee" [value]="true"
            (change)="setMode($event)" autocomplete="off">
     <label class="btn btn-outline-dark mx-3" for="employee">employee</label>
   </div>
@@ -16,11 +16,11 @@
   <div class="card-body">
     <form #form="ngForm" (ngSubmit)="onSubmit(form)">
       <div class="form-floating mb-lg-4 mb-2 mt-3">
-        <input type="text" class="form-control" id="firstname" placeholder="First name" name="name" ngModel required>
+        <input type="text" class="form-control" id="firstname" placeholder="First name" name="firstname" ngModel required>
         <label for="firstname">First name</label>
       </div>
       <div class="form-floating mb-lg-4 mb-2 mt-3">
-        <input type="text" class="form-control" id="lastname" placeholder="Last name" name="name" ngModel required>
+        <input type="text" class="form-control" id="lastname" placeholder="Last name" name="lastname" ngModel required>
         <label for="lastname">last name</label>
       </div>
       <div class="form-floating mb-lg-4 mb-2">
