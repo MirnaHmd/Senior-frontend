@@ -21,10 +21,10 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.locations = this.authService.getLocations();
-   // this.authService.getLocations().subscribe((response:any )=>{
-   //   this.locations = response;
+   this.authService.getLocations().subscribe((response:any )=> {
+     this.locations = response;
      console.log(this.locations);
-
+   })
   }
 
   setMode(e: any): void {

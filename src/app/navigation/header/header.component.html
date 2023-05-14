@@ -15,7 +15,7 @@
             <a class="nav-link" href="#">About us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" data-bs-toggle="modal" data-bs-target="#contactmodal">Contact</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="/login">Login</a>
@@ -26,3 +26,27 @@
     </div>
   </div>
 </nav>
+<div class="modal fade" id="contactmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="exampleModalLabel">Contact us</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Can't find the solution you're looking for? Here's how to get help from our experts.</p>
+        <p><span style="font-weight: bold">Note: </span>We currently don't offer support by phone</p>
+        <br>
+        <h3>Twitter</h3>
+        <p>Tweet a direct message to ....</p>
+        <h3>Facebook</h3>
+        <p>Send us a direct message from our ..... page</p>
+        <h3>Send us an email</h3>
+        <p>Contact us via email and one of our customer service experts will help you out.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
