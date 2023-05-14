@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {NgForm} from "@angular/forms";
 import {Observable} from "rxjs";
+import {AuthService} from "../auth.service";
 
 @Component({
   selector: 'app-register',
@@ -11,12 +12,19 @@ import {Observable} from "rxjs";
 export class RegisterComponent implements OnInit {
   selectedNation = '';
   selectedLocation = '';
+  locations : any = [];
+  industries: any;
   isEmployee: Observable<boolean> = new Observable<boolean>();
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private authService: AuthService) {
   }
 
   ngOnInit(): void {
+    this.locations = this.authService.getLocations();
+   // this.authService.getLocations().subscribe((response:any )=>{
+   //   this.locations = response;
+     console.log(this.locations);
+
   }
 
   setMode(e: any): void {
