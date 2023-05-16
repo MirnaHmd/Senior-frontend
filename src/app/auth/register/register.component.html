@@ -16,7 +16,8 @@
   <div class="card-body">
     <form #form="ngForm" (ngSubmit)="onSubmit(form)">
       <div class="form-floating mb-lg-4 mb-2 mt-3">
-        <input type="text" class="form-control" id="firstname" placeholder="First name" name="firstname" ngModel required>
+        <input type="text" class="form-control" id="firstname" placeholder="First name" name="firstname" ngModel
+               required>
         <label for="firstname">First name</label>
       </div>
       <div class="form-floating mb-lg-4 mb-2 mt-3">
@@ -49,16 +50,7 @@
         <label class="input-group-text" for="location">Location</label>
         <select class="form-select" id="location" #location (change)="onSelectedLocation(location.value)">
           <option selected>Choose...</option>
-          <option *ngFor="let loc of locations"  value="1">{{loc}}</option>
-        </select>
-      </div>
-      <div class="input-group mb-3">
-        <label class="input-group-text" for="nationality">nationality</label>
-        <select class="form-select" id="nationality" #nationality (change)="onSelectedNation(nationality.value)">
-          <option selected>Choose...</option>
-          <option  value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+          <option *ngFor="let location of locations" [value]="location">{{location}}</option>
         </select>
       </div>
       <p>gender:</p>
@@ -73,11 +65,14 @@
                required>
         <label for="phone">Enter phone</label>
       </div>
-      <div class="form-floating mb-lg-4 mb-2" *ngIf="isEmployee">
-        <input type="text" class="form-control" id="major" placeholder="Enter Major" name="major" ngModel
-               required>
-        <label for="major">Enter major</label>
+      <div class="input-group mb-3" *ngIf="isEmployee.value === 'true'">
+        <label class="input-group-text" for="major">Major</label>
+        <select class="form-select" id="major" #major (change)="onSelectedMajor(major.value)">
+          <option selected>Choose...</option>
+          <option *ngFor="let major of majors" [value]="major">{{major}}</option>
+        </select>
       </div>
+      <ng-template #nothing></ng-template>
       <button class="btn btn-success" [disabled]="!form.valid" type="submit">Sign Up</button>
       <p>Already have an account?<a class="text-danger" style="cursor: pointer;" (click)="toLogin()">Login</a></p>
     </form>

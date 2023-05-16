@@ -30,6 +30,6 @@ export class AuthService {
     return this.http.get(`${this.url}/job/locations`);
   }
   getIndustries(){
-    return this.http.get('${this.url}/job/industries');
+    return this.http.get(`${this.url}/job/industries`);
   }
 }

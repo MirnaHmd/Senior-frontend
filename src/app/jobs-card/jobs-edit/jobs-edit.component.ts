@@ -18,6 +18,7 @@ export class JobsEditComponent implements OnInit {
   editMode: boolean = false;
   private jobId!: number;
   @ViewChild('form', {static: false}) private form!: NgForm
+  locations: any;
 
 
 
@@ -25,6 +26,9 @@ export class JobsEditComponent implements OnInit {
              private authService : AuthService, private router : Router) { }
 
   ngOnInit(): void {
+    this.authService.getLocations().subscribe((response) => {
+      this.locations = response;
+    })
     this.route.params.subscribe((params: Params) => {
       if (params['id'] != null) {
         this.subscription = this.jobsService.startedEditing.subscribe(

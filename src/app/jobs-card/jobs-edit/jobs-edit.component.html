@@ -20,9 +20,7 @@
         <label class="input-group-text" for="location">Location</label>
         <select class="form-select" id="location" #location (change)="onSelectedLocation(location.value)">
           <option selected>Choose...</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+          <option *ngFor="let location of locations" [value]="location">{{location}}</option>
         </select>
       </div>
 
