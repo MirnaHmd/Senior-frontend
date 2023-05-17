@@ -48,6 +48,16 @@ export class RegisterComponent implements OnInit {
       major: form.value.selectedMajor,
       role: form.value.role
     }
+    this.authService.register(data).subscribe(
+      (response: any) => {
+        localStorage.setItem('user', JSON.stringify(response.success));
+        this.authService.user.next(response.success);
+        this.router.navigate(['login']);
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
 
   }
 

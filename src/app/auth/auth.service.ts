@@ -21,6 +21,10 @@ export class AuthService {
     this.user.next(user);
     return true
   }
+  register(data : any){
+    return this.http.post(`${this.url}/user`, data)
+  }
+
   logout() {
     localStorage.removeItem('user');
     this.user.next(null);
@@ -32,4 +36,5 @@ export class AuthService {
   getIndustries(){
     return this.http.get(`${this.url}/job/industries`);
   }
+
 }
